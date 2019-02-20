@@ -1,0 +1,16 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+**/out
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Enterprise Architect ###
+*.ldb
+
+### application.properties ###
+application-default.properties
