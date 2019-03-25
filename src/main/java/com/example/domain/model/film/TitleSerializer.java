@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import java.io.IOException;
 
-public class TitleSerializer extends JsonSerializer<Title> {
+class TitleSerializer extends JsonSerializer<Title> {
 
     @Override
     public void serialize(Title title,

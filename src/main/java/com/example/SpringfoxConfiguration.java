@@ -4,6 +4,7 @@ import com.example.domain.model.film.Title;
 import com.example.domain.type.Amount;
 import com.example.domain.type.Description;
 
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
@@ -14,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import com.google.common.base.Predicate;
 
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,6 +27,7 @@ import static springfox.documentation.builders.RequestHandlerSelectors.basePacka
 
 @Configuration
 @EnableSwagger2
+@Import(BeanValidatorPluginsConfiguration.class)
 class SpringfoxConfiguration {
 
     @Bean
@@ -36,8 +39,6 @@ class SpringfoxConfiguration {
                 .apis(createBasePackage())
                 .paths(createPaths())
                 .build()
-                .directModelSubstitute(Amount.class, Integer.class)
-                .directModelSubstitute(Description.class, String.class)
                 .directModelSubstitute(Title.class, String.class);
     }
 

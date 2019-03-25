@@ -37,6 +37,7 @@ ext {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    implementation("io.springfox:springfox-bean-validators:${springfoxVersion}")
     implementation("io.springfox:springfox-swagger2:${springfoxVersion}")
     implementation("io.springfox:springfox-swagger-ui:${springfoxVersion}")
 

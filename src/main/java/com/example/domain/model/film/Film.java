@@ -5,6 +5,8 @@ import com.example.domain.type.Description;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
+
 /**
  * フィルム(作品)
  */
@@ -16,6 +18,7 @@ public class Film {
      */
 
     @ApiModelProperty(value = "フィルムタイトル", example = "作品名が入る")
+    @Valid
     Title title;
 
     public Film(Title title) {

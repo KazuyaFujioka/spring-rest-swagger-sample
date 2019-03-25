@@ -2,11 +2,14 @@ package com.example.domain.model.film;
 
 import com.example.domain.type.Description;
 
+import javax.validation.Valid;
+
 /**
  * フィルムタイトル
  */
 public class Title {
 
+    @Valid
     Description name;
 
     Title(Description name) {

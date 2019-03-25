@@ -1,11 +1,9 @@
 package com.example;
 
 import com.example.domain.model.film.Title;
-import com.example.domain.model.film.TitleSerializer;
-import com.example.domain.type.Amount;
-import com.example.domain.type.AmountSerializer;
-import com.example.domain.type.Description;
-import com.example.domain.type.DescriptionSerializer;
+import com.example.domain.model.film.TitleMixin;
+import com.example.domain.type.*;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,11 +36,11 @@ class WebConfiguration implements WebMvcConfigurer {
         SimpleModule module = new SimpleModule();
 
         module.addSerializer(Amount.class, new AmountSerializer());
-        module.addSerializer(Description.class, new DescriptionSerializer());
-
-        module.addSerializer(Title.class, new TitleSerializer());
 
         objectMapper.registerModule(module);
+
+        objectMapper.addMixIn(Description.class, DescriptionMixin.class);
+        objectMapper.addMixIn(Title.class, TitleMixin.class);
 
         return objectMapper;
     }
